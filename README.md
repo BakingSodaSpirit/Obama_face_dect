@@ -1,7 +1,7 @@
 # Obama_face_dect
 Detect obama faces base with faceCascade in python3
 
-Background<br />
+Background:<br />
 Object detection using Haar feature-based cascade classifiers is an effective face detection method proposed by Paul Viola and Michael Jones in their paper, “Rapid Object Detection using a Boosted Cascade of Simple Features” in 2001. The approach uses machine learning to construct a cascade function that is trained with many positive images (images of faces) and negative images (images without faces). Existing training files for front faces have already been generated and there are numerous publicly available trained object databases (pedestrian, car, sign, etc). An assignment later in the semester will include training your own individual classifier. For now, we will visit the step of extract features from an image and comparing them to a trained set. For this, some of the example Haar features shown in below image are used. Each feature filter (also called a kernel or a mask) generates a single value obtained by subtracting sum of pixels under white rectangle from sum of pixels under black rectangle.<br />
  
 All possible sizes and locations of each kernel are used to calculate the feature results. This tends to amount to a lot of computation. For example, for a 24x24 window, there are over 160000 features. For each feature calculation, the system must find the sum of pixels under white and black rectangles. To solve this efficiently, the integral images is exploited to simplify the calculation of sum of pixels, how large may be the number of pixels, to an operation involving just four pixels. <br />
@@ -17,7 +17,7 @@ In an image, most of the image region is non-face region. So it is a better idea
 The original Viola and Jones detector had 6000+ features with 38 stages with 1, 10, 25, 25 and 50 features in first five stages. (Two features in the above image is actually obtained as the best two features from Adaboost). According to authors, on an average, 10 features out of 6000+ are evaluated per sub-window. This is a simple intuitive explanation of how Viola-Jones face detection works. Read paper for more details.<br />
 
 
-Haar-cascade Detection in OpenCV<br />
+Haar-cascade Detection in OpenCV:<br />
 
 OpenCV comes with a trainer as well as detector. If you want to train your own classifier for any object like car, planes etc. you can use OpenCV to create one. Its full details are given here: Cascade Classifier Training. This assignment deals with detection not training. OpenCV already contains many pre-trained classifiers for face, eyes, smile etc. Those XML files are stored in opencv/data/haarcascades/ folder. Let’s create face and eye detector with OpenCV. First we need to load the required XML classifiers. Then load our input image (or video) in grayscale mode.<br />
 
